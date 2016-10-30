@@ -10,9 +10,6 @@ use Web::Transport::ConnectionClient;
 use DockerCommand;
 
 my $defs_path = path ($ENV{CENNEL_DEFS_FILE} // die "No |CENNEL_DEFS_FILE|");
-my $Defs = json_bytes2perl $defs_path->slurp;
-
-my $IkachanURL = Web::URL->parse_string ($Defs->{ikachan_url});
 
 return sub {
   my $http = Wanage::HTTP->new_from_psgi_env ($_[0]);
@@ -32,10 +29,13 @@ return sub {
         return $app->throw_error (400, reason_phrase => 'Bad |name|')
             unless length $name;
 
+        my $Defs = json_bytes2perl $defs_path->slurp;
+
         my $def = $Defs->{containers}->{$name};
         return $app->throw_error (404, reason_phrase => 'Unknown |name|')
             unless defined $def;
 
+        my $IkachanURL = Web::URL->parse_string ($Defs->{ikachan_url});
         my $ika_client = defined $IkachanURL
             ? Web::Transport::ConnectionClient->new_from_url ($IkachanURL)
             : undef;
