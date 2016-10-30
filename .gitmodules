@@ -34,3 +34,7 @@
 	path = modules/ooutils
 	url = git://github.com/wakaba/perl-ooutils
 	track = master
+[submodule "modules/json-ps"]
+	path = modules/json-ps
+	url = https://github.com/wakaba/perl-json-ps
+	track = master
