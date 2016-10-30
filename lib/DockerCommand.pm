@@ -59,7 +59,7 @@ sub run ($$$) {
     $out->("\$ docker kill $name");
     return $kill->run->then (sub { return $kill->wait });
   })->then (sub {
-    die $_[0] unless $_[0]->exit_code == 0;
+    #die $_[0] unless $_[0]->exit_code == 0;
     my $rm = Promised::Command->new (['docker', 'rm', $name]);
     $rm->stdout ($out);
     $rm->stderr ($out);
@@ -67,7 +67,7 @@ sub run ($$$) {
     $out->("\$ docker rm $name");
     return $rm->run->then (sub { return $rm->wait });
   })->then (sub {
-    die $_[0] unless $_[0]->exit_code == 0;
+    #die $_[0] unless $_[0]->exit_code == 0;
     my $addr = Promised::Command->new
         (['sh', '-c', q{ip route | awk '/docker0/ { print $NF }'}]);
     $addr->stdout (\my $ip);
