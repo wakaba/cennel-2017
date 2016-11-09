@@ -9,6 +9,7 @@ Sarze->run (
   hostports => [['0', $port]],
   psgi_file_name => path (__FILE__)->parent->child ('server.psgi'),
   max_worker_count => 1,
+  shutdown_timeout => 60*20,
 )->to_cv->recv;
 
 =head1 LICENSE
