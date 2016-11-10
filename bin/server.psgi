@@ -54,6 +54,17 @@ return sub {
           }
         };
 
+        my $bwurl = Web::URL->parse_string ($Defs->{bwall_url});
+        my $bw_client = defined $bwurl
+            ? Web::Transport::ConnectionClient->new_from_url ($bwurl) : undef;
+        my $bw = sub {
+          return unless defined $bw_client;
+          return $bw_client->request (path => [$_[0]], params => {
+            pass => $_[1],
+            status => $_[2],
+          }, method => 'POST');
+        };
+
         $app->http->set_response_header
             ('Content-Type' => 'text/plain; charset=utf-8');
         return DockerCommand->run (
@@ -62,10 +73,12 @@ return sub {
             return unless defined $_[0];
             $app->http->send_response_body_as_ref (\q{.});
             $ika->(0, $_[0]);
+            $bw->($name, 1, '');
           },
         )->catch (sub {
           $app->http->send_response_body_as_ref (\qq{\x0AFailed});
           $ika->(1, $_[0]);
+          $bw->($name, 0, 'Failed');
         })->then (sub {
           $app->http->close_response_body;
           return $ika_client->close if defined $ika_client;
