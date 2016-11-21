@@ -1,7 +1,7 @@
 AnyEvent~7.13
 AnyEvent::FileLock~0.03
 AnyEvent::Fork~1.31
-AnyEvent::Util
+AnyEvent::Socket
 Canary::Stability~2012
 Carp~1.38
 Digest::SHA~5.96
@@ -20,6 +20,6 @@ Proc::FastSpawn~1.2
 Scalar::Util~1.46
 Socket~2.024
 Test::More~1.302062
-Time::HiRes~1.9740
+Time::HiRes~1.9741
 Time::Local~1.25
 common::sense~3.74
