@@ -1,11 +1,12 @@
 AnyEvent~7.14
 AnyEvent::FileLock~0.03
 AnyEvent::Fork~1.31
+AnyEvent::Handle
 Canary::Stability~2012
 Carp~1.38
 Cwd~3.62
 Data::Dumper~2.161
-Digest::SHA~5.96
+Digest::SHA~5.97
 Encode~2.92
 Exporter::Lite~0.08
 File::Temp~0.2304
