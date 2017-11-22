@@ -19,7 +19,7 @@ Path::Tiny~0.104
 Proc::FastSpawn~1.2
 Scalar::Util~1.49
 Socket~2.024
-Test::More~1.302112
+Test::More~1.302113
 Time::HiRes~1.9746
 Time::Local~1.25
 common::sense~3.74
