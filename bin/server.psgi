@@ -65,25 +65,30 @@ return sub {
           }, method => 'POST');
         };
 
+        my $closed = ! $app->bare_param ('wait');
+        $app->send_error (202) if $closed;
+
         $app->http->set_response_header
-            ('Content-Type' => 'text/plain; charset=utf-8');
+            ('Content-Type' => 'text/plain; charset=utf-8')
+                unless $closed;
         return DockerCommand->run (
           $def,
           sub {
             return unless defined $_[0];
-            $app->http->send_response_body_as_ref (\q{.});
+            $app->http->send_response_body_as_ref (\q{.}) unless $closed;
             $ika->(0, $_[0]);
             $bw->($name, 1, '');
           },
         )->catch (sub {
-          $app->http->send_response_body_as_ref (\qq{\x0AFailed});
+          $app->http->send_response_body_as_ref (\qq{\x0AFailed})
+              unless $closed;
           $ika->(1, $_[0]);
           $bw->($name, 0, 'Failed');
         })->then (sub {
-          $app->http->close_response_body;
+          $app->http->close_response_body unless $closed;
           return $ika_client->close if defined $ika_client;
         });
-      }
+      } # /hook
 
       if (@$path == 1 and $path->[0] eq 'robots.txt') {
         return $app->send_plain_text ("User-agent: *\x0ADisallow: /");
