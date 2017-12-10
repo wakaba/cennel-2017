@@ -23,7 +23,7 @@ sub run ($$$) {
     $lock_w = AnyEvent::FileLock->flock
         (file => $LockPath->stringify,
          mode => '>',
-         timeout => 60*20,
+         timeout => 60*30,
          cb => sub {
            my $file = $_[0];
            if (defined $file) {
@@ -44,7 +44,7 @@ sub run ($$$) {
     my $pull = Promised::Command->new (['docker', 'pull', $image]);
     $pull->stdout ($out);
     $pull->stderr ($out);
-    $pull->timeout (60*5);
+    $pull->timeout (60*15);
     $out->("\$ docker pull $image");
     return $pull->run->then (sub { return $pull->wait });
   })->then (sub {
