@@ -1,13 +1,13 @@
 AnyEvent~7.14
 AnyEvent::FileLock~0.06
 AnyEvent::Fork~1.31
-AnyEvent::Util
+AnyEvent::Socket
 Canary::Stability~2012
 Carp~1.38
 Cwd~3.62
 Data::Dumper~2.161
 Digest::SHA~6.01
-Encode~2.93
+Encode~2.94
 Exporter::Lite~0.08
 File::Temp~0.2304
 IO::FDPass~1.2
@@ -19,7 +19,7 @@ Path::Class~0.37
 Path::Tiny~0.104
 Proc::FastSpawn~1.2
 Scalar::Util~1.49
-Socket~2.024
+Socket~2.025
 Test::More~1.302120
 Time::HiRes~1.9752
 Time::Local~1.25
