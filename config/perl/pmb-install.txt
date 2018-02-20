@@ -1,7 +1,6 @@
 AnyEvent~7.14
 AnyEvent::FileLock~0.06
 AnyEvent::Fork~1.31
-AnyEvent::Handle
 Canary::Stability~2012
 Carp~1.38
 Cwd~3.74
@@ -18,7 +17,7 @@ Net::SSLeay~1.84
 Path::Class~0.37
 Path::Tiny~0.104
 Proc::FastSpawn~1.2
-Scalar::Util~1.49
+Scalar::Util~1.50
 Socket~2.027
 Test::More~1.302122
 Time::HiRes~1.9754
