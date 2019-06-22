@@ -16,3 +16,4 @@
 - "../../modules/web-encodings.3" build tests
 - "../../modules/web-url.3" build tests
 - "../../modules/json-ps" build tests
+- "../../modules/streams" build tests
