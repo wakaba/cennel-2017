@@ -1,6 +1,7 @@
 AnyEvent~7.17
 AnyEvent::FileLock~0.06
 AnyEvent::Fork~1.31
+AnyEvent::Handle
 Canary::Stability~2013
 Carp~1.50
 Cwd~3.75
@@ -9,7 +10,7 @@ Digest::SHA~6.02
 Exporter::Lite~0.08
 File::Temp~0.2309
 IO::FDPass~1.2
-IO::Handle~1.39
+IO::Handle~1.42
 MIME::Base64~3.15
 Math::BigInt~1.999818
 Method::WeakCallback~0.04
