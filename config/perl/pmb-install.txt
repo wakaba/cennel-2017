@@ -18,7 +18,7 @@ Path::Class~0.37
 Path::Tiny~0.114
 Proc::FastSpawn~1.2
 Scalar::Util~1.55
-Socket~2.029
+Socket~2.030
 Test::More~1.302175
 Time::HiRes~1.9760
 Time::Local~1.30
