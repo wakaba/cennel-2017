@@ -13,9 +13,9 @@ IO::Handle~1.45
 MIME::Base64~3.16
 Math::BigInt~1.999818
 Method::WeakCallback~0.04
-Net::SSLeay~1.88
+Net::SSLeay~1.90
 Path::Class~0.37
-Path::Tiny~0.114
+Path::Tiny~0.116
 Proc::FastSpawn~1.2
 Scalar::Util~1.55
 Socket~2.031
