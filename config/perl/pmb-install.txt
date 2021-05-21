@@ -4,7 +4,7 @@ AnyEvent::Fork~1.31
 Canary::Stability~2013
 Carp~1.50
 Cwd~3.75
-Data::Dumper~2.173
+Data::Dumper~2.180
 Digest::SHA~6.02
 Exporter::Lite~0.08
 File::Temp~0.2311
@@ -19,7 +19,7 @@ Path::Tiny~0.118
 Proc::FastSpawn~1.2
 Scalar::Util~1.56
 Socket~2.031
-Test::More~1.302183
+Test::More~1.302185
 Time::HiRes~1.9764
 Time::Local~1.30
 common::sense~3.75
